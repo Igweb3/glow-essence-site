@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Glow Essence Beauty</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', sans-serif; background-color: #fff5f7; color: #333; }
+
+    header {
+      background-color: #e91e63;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    nav {
+      background-color: white;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      padding: 15px 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #e91e63;
+      margin: 0 20px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .hero h2 { font-size: 48px; }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 32px;
+      color: #e91e63;
+      margin-bottom: 10px;
+    }
+
+    .section p { font-size: 18px; color: #555; }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    .product-card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 20px;
+      max-width: 250px;
+      text-align: left;
+    }
+
+    .product-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .product-card h3 { margin: 10px 0 5px; color: #e91e63; }
+
+    .product-card button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .cta-buttons {
+      margin: 40px 0;
+    }
+
+    .cta-buttons a {
+      display: inline-block;
+      background-color: #e91e63;
+      color: white;
+      padding: 12px 25px;
+      margin: 10px;
+      border-radius: 8px;
+      text-decoration: none;
+    }
+
+    form {
+      max-width: 500px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    form button {
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    iframe.instagram {
+      width: 100%;
+      height: 400px;
+      border: none;
+      margin-top: 40px;
+    }
+
+    footer {
+      background-color: #e91e63;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+      margin-top: 40px;
+    }
+
+    #cart {
+      max-width: 600px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: none;
+    }
+
+    #cart ul { list-style: none; padding: 0; }
+    #cart li { padding: 8px 0; border-bottom: 1px solid #eee; }
+    #checkout-btn {
+      margin-top: 15px;
+      background-color: #e91e63;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 { font-size: 32px; }
+      nav a { display: inline-block; margin: 10px 8px; }
+      .products { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Glow Essence Beauty</h1>
+    <p>Enhancing Your Natural Glow</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#products">Shop</a>
+    <a href="#contact">Contact</a>
+    <a href="#book">Book</a>
+    <a href="#cart" onclick="toggleCart()">🛒 Cart</a>
+  </nav>
+
+  <div class="hero">
+    <h2>Your Glow Starts Here</h2>
+  </div>
+
+  <div class="section" id="products">
+    <h2>Featured Products</h2>
+    <p>Our best-selling skincare and makeup essentials</p>
+    <div class="products">
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x150" alt="Lip Gloss">
+        <h3>Hydra Lip Gloss</h3>
+        <p>Nourishing shine with long-lasting color</p>
+        <button onclick="addToCart('Hydra Lip Gloss', 5000)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://via.placeholder.com/250x150" alt="Facial Serum">
+        <h3>Glow Facial Serum</h3>
+        <p>Brightens and hydrates your skin</p>
+        <button onclick="addToCart('Glow Facial Serum', 8000)">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="cart">
+    <h2>Your Cart</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: ₦<span id="cart-total">0</span></p>
+    <button id="checkout-btn" onclick="checkout()">Checkout with Paystack</button>
+  </div>
+
+  <div class="section cta-buttons" id="book">
+    <h2>Book an Appointment</h2>
+    <a href="https://wa.me/2348129859939?text=Hi%20Glow%20Essence!%20I'd%20like%20to%20book%20an%20appointment." target="_blank">📅 Book via WhatsApp</a>
+  </div>
+
+  <div class="section" id="contact">
+    <h2>Contact Us</h2>
+    <form action="https://formspree.io/f/xrbqrpwv" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="_replyto" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+  <div class="section">
+    <h2>Follow Us on Instagram</h2>
+    <iframe class="instagram" src="https://www.instagram.com/ig_web3/embed" loading="lazy"></iframe>
+  </div>
+
+  <footer>
+    &copy; 2025 Glow Essence Beauty. All rights reserved. | IG: @ig_web3
+  </footer>
+
+  <script>
+    const cart = [];
+
+    function addToCart(name, price) {
+      cart.push({ name, price });
+      alert(name + ' added to cart!');
+      updateCart();
+    }
+
+    function updateCart() {
+      const cartItems = document.getElementById('cart-items');
+      const cartTotal = document.getElementById('cart-total');
+      cartItems.innerHTML = '';
+      let total = 0;
+      cart.forEach((item) => {
+        const li = document.createElement('li');
+        li.textContent = `${item.name} - ₦${item.price}`;
+        cartItems.appendChild(li);
+        total += item.price;
+      });
+      cartTotal.textContent = total;
+    }
+
+    function toggleCart() {
+      const cartSection = document.getElementById('cart');
+      cartSection.style.display = cartSection.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function checkout() {
+      alert('Redirecting to Paystack payment gateway (integration required).');
+      // Example: redirect to a pre-defined Paystack payment link or integrate their API
+    }
+  </script>
+</body>
+</html>
